@@ -5,8 +5,15 @@
     <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#484E64">
+        android:background="#8B4726">
         
+        <Button 
+            android:id="@+id/switch_city"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/home"/>
         <TextView 
             android:id="@+id/city_name"
             android:layout_width="wrap_content"
@@ -14,13 +21,21 @@
             android:layout_centerInParent="true"
             android:textColor="#fff"
             android:textSize="24sp"/>
+        <Button 
+            android:id="@+id/refresh_weather"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/refresh"/>
     </RelativeLayout>
     
     <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#27A5F9"
+        android:background="#B0E2FF"
         >
         
         <TextView 
@@ -30,7 +45,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="#FFF"
+            android:textColor="#1E90FF"
             android:textSize="18sp"/>
         <LinearLayout 
             android:id="@+id/weather_info_layout"
@@ -43,15 +58,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:gravity="center"
-                android:textColor="#FFF"
-                android:textSize="18sp"/>
+                android:textColor="#008B45"
+                android:textSize="22sp"
+                />
+             
             <TextView 
                 android:id="@+id/weather_desp"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:textColor="#FFF"
+                android:textColor="#F08080"
                 android:textSize="40sp"/>
             <LinearLayout 
                 android:layout_width="wrap_content"
@@ -64,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textColor="#FFF"
+                android:textColor="#A1A1A1"
                 android:textSize="40sp"/>
                 
                 <TextView 
@@ -75,7 +92,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="~"
-                android:textColor="#FFF"
+                android:textColor="#A1A1A1"
                 android:textSize="40sp"/>
                 
                 <TextView 
@@ -83,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textColor="#FFF"
+                android:textColor="#A1A1A1"
                 android:textSize="40sp"/>
             </LinearLayout>
         </LinearLayout>

@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 
 public class Utility {
 	public synchronized static boolean handleProvincesRsponse(CoolWeatherDB coolWeatherDB , String response){
@@ -87,20 +88,21 @@ public class Utility {
 		}
 		
 	}
+	//不，这里的spfs只会查询一次，因为第一次的时候weather_code就储存错误，导致以后每次查询提取的广州的weathercode都是错误的所以更新不了，所以需要删除系统文件之后才会更新
 	
-	public static void saveWeatherInfo(Context context ,String cityName , String weathercode, String temp1,String temp2,String weatherDesp, String publishTime){
+	public static void saveWeatherInfo(Context context ,String cityName , String weatherCode, String temp1,String temp2,String weatherDesp, String publishTime){
 		SimpleDateFormat sdf =new SimpleDateFormat("yyyy年M月d日",Locale.CHINA);
 		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
 		editor.putBoolean("city_selected", true);
 		editor.putString("city_name", cityName);
-		editor.putString("weather_code", cityName);
+		editor.putString("weather_code", weatherCode);
 		editor.putString("temp1", temp1);
 		editor.putString("temp2", temp2);
 		editor.putString("weather_desp", weatherDesp);
 		editor.putString("publish_time", publishTime);
 		editor.putString("current_date", sdf.format(new Date()));
 		editor.commit();
-		
+		Log.d("publish", publishTime);
 	}
 }
 

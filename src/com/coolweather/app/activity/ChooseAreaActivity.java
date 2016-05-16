@@ -34,7 +34,7 @@ public class ChooseAreaActivity extends Activity {
 		public static final int lEVEL_PROVINCE = 0;
 		public static final int lEVEL_CITY=1;
 		public static final int lEVEL_COUNTY=2;
-		
+		private boolean isFromWeatherActivity ; 
 		private ProgressDialog progressDialog;
 		private TextView titleText;
 		private ListView listView;
@@ -53,8 +53,10 @@ public class ChooseAreaActivity extends Activity {
 		protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 			super.onCreate(savedInstanceState);
+			
+			isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
 			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-			if (prefs.getBoolean("city_selected", false)) {
+			if (prefs.getBoolean("city_selected", false)&& !isFromWeatherActivity) {
 				Intent intent = new Intent(this,WeatherActivity.class);
 				startActivity(intent);
 				finish();
@@ -216,8 +218,12 @@ public class ChooseAreaActivity extends Activity {
 		}else if (currentLevel == lEVEL_CITY){
 			queryProvinces();
 		}else{
+			if(isFromWeatherActivity){
+				Intent intent =new Intent(this , WeatherActivity.class);
+				startActivity(intent);
+			}
 			finish();
-		}
+		  }
 		}
 }
 
